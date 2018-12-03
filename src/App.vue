@@ -1,16 +1,21 @@
 <template>
-  <div class="full-width center-content">
-    <h1>Hello World!</h1>
+  <div id="myApp">
+    <router-view/>
   </div>
 </template>
 
-<style scoped>
-.full-width {
-  width: 100%;
+<script>
+export default {
+  name: 'App',
 }
-.center-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+</script>
+
+<style>
+#myApp {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
 </style>
