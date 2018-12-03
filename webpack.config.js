@@ -13,6 +13,7 @@ module.exports = {
     entry: ['babel-polyfill', './src/app.js'],
     output: {
         path: BUILD_DIR,
+        chunkFilename: '[id].chunk.js',
         filename: 'app.js'
     },
     module: {

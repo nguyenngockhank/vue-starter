@@ -4,7 +4,8 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 import HelloWorld from '../components/HelloWorld'
-import SecondWorld from '../components/SecondWorld'
+const SecondWorld = () => import(/* webpackChunkName: "secondworld" */ '../components/SecondWorld')
+
 
 
 export default new Router({
