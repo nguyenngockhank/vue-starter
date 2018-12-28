@@ -7,13 +7,19 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+$width: 80%;
 .full-width {
-  width: 100%;
-}
-.center-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  &{
+    width: $width;
+    margin: auto;
+    background-color: #bbbbbb;
+    padding: 10px;
+  }
+  .center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>
