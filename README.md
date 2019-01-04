@@ -64,3 +64,47 @@ export default {
 }
 </script>
 ```
+
+## Vuex Supported
+
+1/ Define Action Name at `constants.js` 
+```javascript
+export const INCREASE_COUNT = 'increase_count';
+```
+
+2/ Auto mapping constants to mutations in `actions.js` 
+
+3/ Define Mutation of Action at `mutations.js`
+```javascript
+mutations[INCREASE_COUNT] = (state, num = 1) => {
+    state.testCount += num;
+}
+```
+
+4/ Usage Component
+```html
+<template>
+
+<div><button @click="handleClick()">Increase</button> {{count}}</div>
+</template>
+
+<script>
+import { mapActions } from 'vuex'
+import { INCREASE_COUNT } from '../store/constants'
+
+export default {
+  computed: {
+    count () {
+      return this.$store.state.testCount 
+    }
+  },
+  methods: {
+    // map actions to component
+    ...mapActions([ INCREASE_COUNT ]),
+    handleClick() {
+      this[INCREASE_COUNT](2);
+    }
+  }
+}
+</script>
+```
