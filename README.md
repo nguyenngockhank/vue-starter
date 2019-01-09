@@ -24,6 +24,27 @@ async function hello(name) {
 hello('Khank'); // will print 'Hello Khank' after 3s
 ```
 
+## Router Supported
+```javascript 
+import HelloWorld from '../components/HelloWorld'
+import SecondWorld from '../components/SecondWorld'
+
+export default new Router({
+    routes: [
+        {
+            path: '/',
+            name: 'HelloWorld',
+            component: HelloWorld
+        },
+        {
+            path: '/secondworld',
+            name: 'SecondWorld',
+            component: SecondWorld
+        },
+    ]
+})
+```
+
 ## ADM Supported
 ```javascript
 const SecondWorld = () => import(/* webpackChunkName: "secondworld" */ '../components/SecondWorld')
@@ -34,7 +55,7 @@ const SecondWorld = () => import(/* webpackChunkName: "secondworld" */ '../compo
 Sender component
 ```html
 <template>
-<div><button @click="emitHelloEvent()">Emit event</button></div>
+<div><button @click="emitHelloClickEvent()">Emit event</button></div>
 </template>
 
 <script>
@@ -106,5 +127,17 @@ export default {
     }
   }
 }
+</script>
+```
+
+## Deployment
+
+### Update Assets Path
+1/ Update **output.publicPath** at file `webpack.config.js` if you want to change assets path. 
+
+2/ If you want to set asset path on runtime, just add global variables before loading file **assetPath**
+```html
+<script>
+window.assetUrl  = 'http://localhost/vue-starter/dist/';
 </script>
 ```

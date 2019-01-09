@@ -1,3 +1,5 @@
+__webpack_public_path__ = window.assetUrl || '';
+
 import {} from './core/event_bus'
 import Vue from 'vue'
 import App from './App.vue'

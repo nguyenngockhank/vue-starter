@@ -1,12 +1,15 @@
 const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 var path = require('path')
 var APP_DIR = path.resolve(__dirname, 'src');
 var BUILD_DIR = path.resolve(__dirname, 'dist');
 
 var mode = process.env.NODE_ENV; // production or development
+
+var styleLoaders = mode !== 'production' ? [ 'vue-style-loader', 'css-loader', 'sass-loader' ] : [ MiniCssExtractPlugin.loader,  'css-loader', 'sass-loader'] ;
 
 module.exports = {
     mode: mode,
@@ -27,20 +30,9 @@ module.exports = {
                 use: 'babel-loader'
             },
             {
-                test: /\.css$/,
-                use: [
-                    'vue-style-loader',
-                    'css-loader'
-                ],
+                test: /\.(sa|sc|c)ss$/,
+                use: styleLoaders
             },
-            {
-                test: /\.scss$/,
-                use: [
-                  'vue-style-loader',
-                  'css-loader',
-                  'sass-loader'
-                ]
-              }
         ]
     },
     resolve: {
@@ -52,7 +44,10 @@ module.exports = {
         ]
     },
     plugins: [
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'style.css'
+        })
     ],
     optimization: {}
 }
