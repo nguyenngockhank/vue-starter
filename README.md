@@ -141,3 +141,8 @@ export default {
 window.assetUrl  = 'http://localhost/vue-starter/dist/';
 </script>
 ```
+
+
+## References
+
+[browsers list config](https://github.com/browserslist/browserslist#config-file)

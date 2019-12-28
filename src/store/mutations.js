@@ -5,4 +5,4 @@ mutations[INCREASE_COUNT] = (state, num = 1) => {
     state.testCount += num;
 }
 
-export const mutations = mutations;
+export { mutations } ;

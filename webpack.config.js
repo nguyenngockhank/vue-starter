@@ -13,7 +13,7 @@ var styleLoaders = mode !== 'production' ? [ 'vue-style-loader', 'css-loader', '
 
 module.exports = {
     mode: mode,
-    entry: ['babel-polyfill', './src/app.js'],
+    entry: [ './src/app.js'],
     output: {
         path: BUILD_DIR,
         chunkFilename: '[id].chunk.js',
