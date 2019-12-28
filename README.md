@@ -1,13 +1,18 @@
 # Technical Stack
 Webpack + Babel + VueJS 
 
-## Dev & Build 
-```javascript
+## Dev & Build & Test
+
+```
 npm run dev
 ```
 
-```javascript
+```
 npm run build
+```
+
+```
+npm run test:unit
 ```
 
 ## Async & Await Supported
