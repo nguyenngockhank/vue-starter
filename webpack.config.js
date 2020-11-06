@@ -1,15 +1,17 @@
 const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 var MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 var path = require('path')
-var APP_DIR = path.resolve(__dirname, 'src');
-var BUILD_DIR = path.resolve(__dirname, 'dist');
+var APP_DIR = path.resolve(__dirname, 'src')
+var BUILD_DIR = path.resolve(__dirname, 'dist')
 
-var mode = process.env.NODE_ENV; // production or development
+var mode = process.env.NODE_ENV // production or development
 
-var styleLoaders = mode !== 'production' ? [ 'vue-style-loader', 'css-loader', 'sass-loader' ] : [ MiniCssExtractPlugin.loader,  'css-loader', 'sass-loader'] ;
+var styleLoaders = mode !== 'production' 
+                    ? [ 'vue-style-loader', 'css-loader', 'sass-loader' ] 
+                    : [ MiniCssExtractPlugin.loader,  'css-loader', 'sass-loader']
 
 module.exports = {
     mode: mode,
@@ -33,6 +35,17 @@ module.exports = {
                 test: /\.(sa|sc|c)ss$/,
                 use: styleLoaders
             },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?[a-z0-9]+)?$/,
+                use: [{
+                    loader: 'file-loader', // npm install file-loader -S
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'fonts/',
+                        publicPath: '../fonts'
+                    }
+                }]
+            }
         ]
     },
     resolve: {
