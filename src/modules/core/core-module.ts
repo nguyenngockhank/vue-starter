@@ -2,6 +2,10 @@ import { Vue as _Vue } from 'vue/types/vue'
 import { VueModule } from 'vue-modules'
 import VueRouter from 'vue-router'
 import { Store } from 'vuex'
+
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+
 import App from "./components/App.vue"
 
 export class CoreModule implements VueModule {
@@ -10,6 +14,9 @@ export class CoreModule implements VueModule {
   constructor(private router: VueRouter, private store: Store<any>) {}
   
   install(Vue: typeof _Vue) {
+    // set dup element ui
+    Vue.use(ElementUI)
+
     // register Vue
     Vue.prototype.$eventBus = new Vue()
 

@@ -1,14 +1,20 @@
 <template>
   <div class="full-width">
     <h1 class=" center-content">Hello World!</h1>
-    <div>
-       <button @click="handleClick()">Increase</button> {{count}}
-    </div>
 
+    
+
+    <el-progress type="circle" :percentage="count"></el-progress>
+
+    <div>
+      <el-button type="info" round @click="handleClick()">Increase</el-button>
+    </div>
 
     <router-link :to="{ name: 'About'}">
       About page
     </router-link>
+
+    <el-progress :percentage="count" status="success"></el-progress>
   </div>
 </template>
 
@@ -26,7 +32,7 @@ export default {
   methods: {
     ...mapActions([ INCREASE_COUNT ]),
     handleClick() {
-      this[INCREASE_COUNT](2);
+      this[INCREASE_COUNT](10)
     }
   }
 }

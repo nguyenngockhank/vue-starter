@@ -31,10 +31,15 @@ module.exports = {
                 use: [{
                     loader: 'file-loader', // npm install file-loader -S
                     options: {
+                        esModule: false,
                         name: '[name].[ext]',
                         outputPath: 'fonts/',
-                        publicPath: '../fonts'
-                    }
+                        // publicPath: '../fonts'
+                        publicPath: (url, resourcePath, context) => {
+                            console.log('-- url --', url);
+                            return `fonts/${url}`;
+                        },
+                    },
                 }]
             }
         ]
