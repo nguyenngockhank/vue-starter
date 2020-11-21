@@ -4,19 +4,24 @@
     <div>
        <button @click="handleClick()">Increase</button> {{count}}
     </div>
-    <a href="#/secondworld">Second World</a>
+
+
+    <router-link :to="{ name: 'About'}">
+      About page
+    </router-link>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-import { INCREASE_COUNT } from '../store/constants'
+import { createNamespacedHelpers } from 'vuex'
+const { mapState, mapActions } = createNamespacedHelpers('home')
+import { INCREASE_COUNT } from '../store/action-types'
 
 export default {
   computed: {
-    count () {
-      return this.$store.state.testCount
-    }
+    ...mapState({
+      count: state => state.testCount,
+    })
   },
   methods: {
     ...mapActions([ INCREASE_COUNT ]),

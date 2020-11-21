@@ -1,7 +1,8 @@
 <template>
   <div class="full-width">
-    <h1 class="title">Second World!</h1>
-    <a href="#/">Hello World</a>
+    <h1 class="title">About...</h1>
+    <a href="#/">Back to Hello World</a>
+    
     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
       Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
       when an unknown printer took a galley of type and scrambled it to make a type specimen book. 

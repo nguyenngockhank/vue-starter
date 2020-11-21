@@ -1,4 +1,4 @@
-import * as constants from "./constants";
+import * as constants from "./action-types";
 
 var actions = {}
 
@@ -12,4 +12,4 @@ for(let index in constants) {
 
 /// can override action here :D
 
-export default actions;
+export { actions };
